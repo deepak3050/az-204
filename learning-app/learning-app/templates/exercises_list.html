@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Hands-on Exercises - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>🛠️ Hands-on Exercises</h1>
+    <p>Practical exercises to build real Azure solutions</p>
+</div>
+
+<div class="items-grid">
+    {% for exercise in exercises %}
+    <div class="item-card">
+        <h3>{{ exercise.name }}</h3>
+        {% if exercise.has_readme %}
+        <a href="/exercise/{{ exercise.name }}" class="btn btn-small">View Exercise</a>
+        {% else %}
+        <span class="badge">No README</span>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+{% if not exercises %}
+<div class="empty-state">
+    <p>No exercises found.</p>
+</div>
+{% endif %}
+{% endblock %}

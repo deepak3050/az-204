@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Learning Path - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>🎓 Microsoft Learning Path</h1>
+    <p>Official Microsoft learning materials for AZ-204</p>
+</div>
+
+<div class="items-grid">
+    {% for material in materials %}
+    <div class="item-card">
+        <h3>{{ material.name }}</h3>
+        <a href="/learning-path/{{ material.name }}" class="btn btn-small">View Material</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not materials %}
+<div class="empty-state">
+    <p>No learning path materials found.</p>
+</div>
+{% endif %}
+{% endblock %}

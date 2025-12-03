@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}{{ exercise_name }} - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &gt; <a href="/exercises">Exercises</a> &gt; {{ exercise_name }}
+</div>
+
+<article class="content-detail">
+    <h1>{{ exercise_name }}</h1>
+
+    <div class="markdown-content">
+        {{ content | safe }}
+    </div>
+
+    {% if other_files %}
+    <aside class="file-list">
+        <h3>Additional Files</h3>
+        <ul>
+            {% for file in other_files %}
+            <li>{{ file }}</li>
+            {% endfor %}
+        </ul>
+    </aside>
+    {% endif %}
+</article>
+
+<div class="navigation-buttons">
+    <a href="/exercises" class="btn">← Back to Exercises</a>
+</div>
+{% endblock %}

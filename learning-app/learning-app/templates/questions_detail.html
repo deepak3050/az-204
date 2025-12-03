@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic_name }} Questions - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &gt; <a href="/questions">Questions</a> &gt; {{ topic_name }}
+</div>
+
+<article class="content-detail">
+    <h1>{{ topic_name }} - Practice Questions</h1>
+
+    <div class="info-banner">
+        <p><strong>💡 Tip:</strong> Try to answer each question before revealing the answer. Multiple checkboxes indicate multiple correct answers.</p>
+    </div>
+
+    <div class="markdown-content questions-content">
+        {{ content | safe }}
+    </div>
+</article>
+
+<div class="navigation-buttons">
+    <a href="/questions" class="btn">← Back to Questions</a>
+    <a href="/topic/{{ topic_name }}" class="btn">📖 Study Topic</a>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic_name }} - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &gt; <a href="/topics">Topics</a> &gt; {{ topic_name }}
+</div>
+
+<article class="content-detail">
+    <h1>{{ topic_name }}</h1>
+
+    {% if related.questions or related.knowledge_check or related.exercises or related.learning_path %}
+    <aside class="related-resources">
+        <h3>Related Resources</h3>
+        <div class="related-links">
+            {% if related.questions %}
+            <a href="/questions/{{ related.questions }}" class="related-link">❓ Practice Questions</a>
+            {% endif %}
+            {% if related.knowledge_check %}
+            <a href="/knowledge-check/{{ related.knowledge_check }}" class="related-link">✅ Knowledge Check</a>
+            {% endif %}
+            {% if related.learning_path %}
+            <a href="/learning-path/{{ related.learning_path }}" class="related-link">🎓 Learning Path</a>
+            {% endif %}
+            {% for exercise in related.exercises %}
+            <a href="/exercise/{{ exercise }}" class="related-link">🛠️ {{ exercise }}</a>
+            {% endfor %}
+        </div>
+    </aside>
+    {% endif %}
+
+    <div class="markdown-content">
+        {{ content | safe }}
+    </div>
+</article>
+
+<div class="navigation-buttons">
+    <a href="/topics" class="btn">← Back to Topics</a>
+</div>
+{% endblock %}

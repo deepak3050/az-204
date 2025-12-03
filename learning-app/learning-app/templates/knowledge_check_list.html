@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Knowledge Checks - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>✅ Knowledge Checks</h1>
+    <p>Quick verification questions to test your understanding</p>
+</div>
+
+<div class="items-grid">
+    {% for check in checks %}
+    <div class="item-card">
+        <h3>{{ check.name }}</h3>
+        <a href="/knowledge-check/{{ check.name }}" class="btn btn-small">Start Check</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not checks %}
+<div class="empty-state">
+    <p>No knowledge checks found.</p>
+</div>
+{% endif %}
+{% endblock %}

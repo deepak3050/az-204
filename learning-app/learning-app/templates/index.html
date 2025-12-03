@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block title %}Home - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>AZ-204: Developing Solutions for Microsoft Azure</h1>
+    <p class="subtitle">Comprehensive Study Guide and Practice Materials</p>
+</div>
+
+{% if study_plan %}
+<section class="study-plan">
+    <h2>📚 Study Plan</h2>
+    <div class="markdown-content">
+        {{ study_plan | safe }}
+    </div>
+</section>
+{% endif %}
+
+<section class="resources-grid">
+    <div class="resource-card">
+        <h3>📖 Topics</h3>
+        <p>Detailed study notes on all Azure services covered in the exam</p>
+        <p class="count">{{ topics | length }} topics available</p>
+        <a href="/topics" class="btn">Browse Topics</a>
+    </div>
+
+    <div class="resource-card">
+        <h3>❓ Practice Questions</h3>
+        <p>Test your knowledge with practice questions for each topic</p>
+        <a href="/questions" class="btn">Practice Questions</a>
+    </div>
+
+    <div class="resource-card">
+        <h3>✅ Knowledge Checks</h3>
+        <p>Quick knowledge verification questions to test understanding</p>
+        <a href="/knowledge-check" class="btn">Knowledge Checks</a>
+    </div>
+
+    <div class="resource-card">
+        <h3>🛠️ Hands-on Exercises</h3>
+        <p>Practical exercises to build real Azure solutions</p>
+        <p class="count">{{ exercises | length }} exercises available</p>
+        <a href="/exercises" class="btn">Start Exercises</a>
+    </div>
+
+    <div class="resource-card">
+        <h3>🎓 Learning Path</h3>
+        <p>Microsoft official learning path materials</p>
+        <a href="/learning-path" class="btn">Learning Path</a>
+    </div>
+
+    <div class="resource-card">
+        <h3>📝 Exam Notes</h3>
+        <p>Exam strategies, tips, and important reminders</p>
+        <a href="/notes" class="btn">View Notes</a>
+    </div>
+</section>
+
+<section class="exam-overview">
+    <h2>Exam Overview</h2>
+    <div class="exam-sections">
+        <div class="exam-section">
+            <h4>Develop Azure compute solutions (25–30%)</h4>
+            <ul>
+                <li>Implement containerized solutions</li>
+                <li>Implement Azure App Service Web Apps</li>
+                <li>Implement Azure Functions</li>
+            </ul>
+        </div>
+        <div class="exam-section">
+            <h4>Develop for Azure storage (15–20%)</h4>
+            <ul>
+                <li>Develop solutions that use Azure Cosmos DB</li>
+                <li>Develop solutions that use Azure Blob Storage</li>
+            </ul>
+        </div>
+        <div class="exam-section">
+            <h4>Implement Azure security (15–20%)</h4>
+            <ul>
+                <li>Implement user authentication and authorization</li>
+                <li>Implement secure Azure solutions</li>
+            </ul>
+        </div>
+        <div class="exam-section">
+            <h4>Monitor, troubleshoot, and optimize (5–10%)</h4>
+            <ul>
+                <li>Troubleshoot solutions by using Application Insights</li>
+            </ul>
+        </div>
+        <div class="exam-section">
+            <h4>Connect to and consume Azure services (20–25%)</h4>
+            <ul>
+                <li>Implement API Management</li>
+                <li>Develop event-based solutions</li>
+                <li>Develop message-based solutions</li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

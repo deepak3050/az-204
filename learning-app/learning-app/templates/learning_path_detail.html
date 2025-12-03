@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic_name }} - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &gt; <a href="/learning-path">Learning Path</a> &gt; {{ topic_name }}
+</div>
+
+<article class="content-detail">
+    <h1>{{ topic_name }}</h1>
+
+    <div class="markdown-content">
+        {{ content | safe }}
+    </div>
+</article>
+
+<div class="navigation-buttons">
+    <a href="/learning-path" class="btn">← Back to Learning Path</a>
+</div>
+{% endblock %}

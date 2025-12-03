@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Topics - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>📖 Study Topics</h1>
+    <p>Detailed study notes on Azure services covered in the AZ-204 exam</p>
+</div>
+
+<div class="items-grid">
+    {% for topic in topics %}
+    <div class="item-card">
+        <h3>{{ topic.name }}</h3>
+        <a href="/topic/{{ topic.name }}" class="btn btn-small">Study Topic</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not topics %}
+<div class="empty-state">
+    <p>No topics found.</p>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ topic_name }} Knowledge Check - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <a href="/">Home</a> &gt; <a href="/knowledge-check">Knowledge Checks</a> &gt; {{ topic_name }}
+</div>
+
+<article class="content-detail">
+    <h1>{{ topic_name }} - Knowledge Check</h1>
+
+    <div class="info-banner">
+        <p><strong>💡 Tip:</strong> These questions follow the "md:" format. Think about your answer before revealing the hidden response.</p>
+    </div>
+
+    <div class="markdown-content">
+        {{ content | safe }}
+    </div>
+</article>
+
+<div class="navigation-buttons">
+    <a href="/knowledge-check" class="btn">← Back to Knowledge Checks</a>
+    <a href="/topic/{{ topic_name }}" class="btn">📖 Study Topic</a>
+</div>
+{% endblock %}

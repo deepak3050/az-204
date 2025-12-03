@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Practice Questions - AZ-204 Learning App{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>❓ Practice Questions</h1>
+    <p>Test your knowledge with practice questions organized by topic</p>
+</div>
+
+<div class="items-grid">
+    {% for question_set in questions %}
+    <div class="item-card">
+        <h3>{{ question_set.name }}</h3>
+        <a href="/questions/{{ question_set.name }}" class="btn btn-small">View Questions</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% if not questions %}
+<div class="empty-state">
+    <p>No practice questions found.</p>
+</div>
+{% endif %}
+{% endblock %}

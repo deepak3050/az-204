@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}AZ-204 Learning App{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="logo">AZ-204 Learning Hub</a>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/topics">Topics</a></li>
+                <li><a href="/questions">Questions</a></li>
+                <li><a href="/knowledge-check">Knowledge Checks</a></li>
+                <li><a href="/exercises">Exercises</a></li>
+                <li><a href="/learning-path">Learning Path</a></li>
+                <li><a href="/notes">Exam Notes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>AZ-204: Developing Solutions for Microsoft Azure - Study Guide</p>
+            <p class="disclaimer">Use these materials at your own discretion. Cross-reference with official Microsoft documentation.</p>
+        </div>
+    </footer>
+</body>
+</html>
